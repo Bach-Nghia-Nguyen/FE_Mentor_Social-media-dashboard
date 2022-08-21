@@ -1,0 +1,77 @@
+@use 'colors';
+
+.overview-card {
+  width: 250px;
+  border-radius: 5px;
+  background-color: colors.$light-grayish-blue;
+  padding: 25px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e1e3f0;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    .subject {
+      color: colors.$dark-grayish-blue;
+      font-weight: 700;
+    }
+  }
+
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .value {
+      font-weight: 700;
+      font-size: 28px;
+    }
+    .change {
+      font-weight: 700;
+      &.rise {
+        color: colors.$lime-green;
+      }
+      &.fall {
+        color: colors.$bright-red;
+      }
+
+      span {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: colors.$very-desaturated-blue;
+    &:hover {
+      background-color: #333a56;
+    }
+    .head {
+      .subject {
+        color: colors.$desaturated-blue;
+      }
+    }
+    .foot {
+      .value {
+        color: colors.$white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1145px) {
+  .overview-card {
+    width: 215px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .overview-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

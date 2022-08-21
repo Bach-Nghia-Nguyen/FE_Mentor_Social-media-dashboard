@@ -1,0 +1,108 @@
+@use 'colors';
+
+.AppContainer {
+  min-height: 100vh;
+  background-color: colors.$white;
+  position: relative;
+  overflow: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: colors.$very-pale-blue-top-bg;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 250px;
+    z-index: 0;
+  }
+
+  &.dark {
+    background-color: colors.$very-dark-blue;
+
+    &::before {
+      background-color: colors.$very-dark-blue-top-bg;
+    }
+
+    .inner-wrapper {
+      .OverviewSection {
+        .heading {
+          color: colors.$white;
+        }
+      }
+    }
+  }
+
+  .inner-wrapper {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .FollowerSection {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      column-gap: 5px;
+    }
+
+    .OverviewSection {
+      .heading {
+        font-size: 24px;
+        color: colors.$dark-grayish-blue;
+        font-weight: 700;
+        padding-bottom: 20px;
+      }
+
+      .overview-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 20px;
+        column-gap: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  .AppContainer {
+    .inner-wrapper {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .AppContainer {
+    .inner-wrapper {
+      .OverviewSection {
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .AppContainer {
+    .inner-wrapper {
+      .FollowerSection {
+        display: block;
+      }
+
+      .OverviewSection {
+        .overview-wrapper {
+          display: block;
+        }
+      }
+    }
+  }
+}
